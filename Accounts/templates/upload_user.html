@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block page_title %}Teacher Dashboard{% endblock page_title %}
+
+{% block body %}
+<h1>Import Users from CSV</h1>
+<p>Click the button below to import users from the CSV file located at <strong>/static/upload_user/upload.csv</strong>.</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Import Users</button>
+</form>
+
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+{% endblock %}
